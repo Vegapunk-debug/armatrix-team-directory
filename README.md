@@ -1,7 +1,7 @@
 <div align="center">
 
   # **Armatrix Team Directory**
-  <p><strong>A high-performance, full-stack team management interface engineered for the innovators in deep-tech robotics.</strong></p>
+**A high-performance, full-stack team management interface engineered for the innovators in deep-tech robotics.Design and implement a modern `/team` page for  [Armatrix](https://armatrix.in/).**
 
   <p>
     <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" alt="Next.js" />
