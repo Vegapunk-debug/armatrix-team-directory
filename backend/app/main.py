@@ -46,3 +46,10 @@ def get_team(db: Session = Depends(get_db)):
     return db.query(models.TeamMember).all()
 
 
+@app.post("/api/team", response_model=schemas.TeamMemberResponse)
+def create_team_member(member: schemas.TeamMemberCreate, db: Session = Depends(get_db)):
+    db_member = models.TeamMember(**member.model_dump())
+    db.add(db_member)
+    db.commit()
+    db.refresh(db_member)
+    return db_member
