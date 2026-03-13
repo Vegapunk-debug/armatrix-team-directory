@@ -1,4 +1,12 @@
 from fastapi import FastAPI
+from dotenv import load_dotenv
+
+from . import models
+from .database import engine
+
+load_dotenv()
+
+models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
     title="Armatrix Team Directory API",
