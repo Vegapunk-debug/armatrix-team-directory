@@ -44,3 +44,6 @@ export async function updateMember(id: number, payload: Omit<TeamMember, "id">):
   }
   return res.json()
 }
+
+export async function deleteMember(id: number): Promise<void> {
+  const res = await fetch(`${baseUrl}/api/team/${id}`, { method: "DELETE" });
