@@ -24,3 +24,11 @@ export async function fetchTeam(): Promise<TeamMember[]> {
 export async function createMember(payload: Omit<TeamMember, "id">): Promise<TeamMember> {
   const res = await fetch(`${baseUrl}/api/team`, {
     method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  })
+  if (!res.ok) {
+    throw new Error("Failed to create member")
+  }
+  return res.json()
+}
