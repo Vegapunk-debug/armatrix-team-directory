@@ -49,3 +49,5 @@ export async function deleteMember(id: number): Promise<void> {
   const res = await fetch(`${baseUrl}/api/team/${id}`, { method: "DELETE" });
   if (!res.ok) {
     throw new Error("Failed to delete member")
+  }
+}
