@@ -7,3 +7,8 @@ export type TeamMember = {
   linkedin_url: string | null;
   github_url: string | null;
 }
+
+export type TeamMemberPayload = Omit<TeamMember, "id">;
+
+const baseUrl = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000";
+
