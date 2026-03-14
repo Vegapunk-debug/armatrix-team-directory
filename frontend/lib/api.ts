@@ -37,3 +37,10 @@ export async function updateMember(id: number, payload: Omit<TeamMember, "id">):
   const res = await fetch(`${baseUrl}/api/team/${id}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  })
+  if (!res.ok) {
+    throw new Error("Failed to update member")
+  }
+  return res.json()
+}
