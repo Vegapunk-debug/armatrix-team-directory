@@ -32,3 +32,8 @@ export async function createMember(payload: Omit<TeamMember, "id">): Promise<Tea
   }
   return res.json()
 }
+
+export async function updateMember(id: number, payload: Omit<TeamMember, "id">): Promise<TeamMember> {
+  const res = await fetch(`${baseUrl}/api/team/${id}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
