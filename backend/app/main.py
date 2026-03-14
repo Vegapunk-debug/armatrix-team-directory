@@ -53,3 +53,30 @@ def create_team_member(member: schemas.TeamMemberCreate, db: Session = Depends(g
     db.commit()
     db.refresh(db_member)
     return db_member
+
+
+@app.put("/api/team/{member_id}", response_model=schemas.TeamMemberResponse)
+def update_team_member(member_id: int, member: schemas.TeamMemberCreate, db: Session = Depends(get_db)):
+    db_member = db.query(models.TeamMember).filter(models.TeamMember.id == member_id).first()
+    
+    if not db_member:
+        raise HTTPException(status_code=404, detail="Team member not found")
+    
+    for key, value in member.model_dump().items():
+        setattr(db_member, key, value)
+        
+    db.commit()
+    db.refresh(db_member)
+    return db_member
+
+
+@app.delete("/api/team/{member_id}")
+def delete_team_member(member_id: int, db: Session = Depends(get_db)):
+    db_member = db.query(models.TeamMember).filter(models.TeamMember.id == member_id).first()
+    
+    if not db_member:
+        raise HTTPException(status_code=404, detail="Team member not found")
+        
+    db.delete(db_member)
+    db.commit()
+    return {"message": f"Team member {member_id} successfully deleted"}
