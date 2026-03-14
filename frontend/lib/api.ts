@@ -20,3 +20,7 @@ export async function fetchTeam(): Promise<TeamMember[]> {
   }
   return res.json()
 }
+
+export async function createMember(payload: Omit<TeamMember, "id">): Promise<TeamMember> {
+  const res = await fetch(`${baseUrl}/api/team`, {
+    method: "POST",
