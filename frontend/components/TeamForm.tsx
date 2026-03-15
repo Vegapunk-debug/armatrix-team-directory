@@ -73,9 +73,13 @@ export default function TeamForm({
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
+                        aria-hidden="true"
                     />
 
                     <motion.div
+                        role="dialog"
+                        aria-modal="true"
+                        aria-labelledby="modal-title"
                         className="relative w-full max-w-2xl glass-strong p-8 shadow-card"
                         initial={{ scale: 0.95, opacity: 0, y: 10 }}
                         animate={{ scale: 1, opacity: 1, y: 0 }}
@@ -84,7 +88,7 @@ export default function TeamForm({
                     >
                         <div className="flex items-start justify-between gap-6">
                             <div>
-                                <h2 className="font-display text-xl font-bold tracking-hero text-white">
+                                <h2 id="modal-title" className="font-display text-xl font-bold tracking-hero text-white">
                                     {isEditing ? "Edit team member" : "New team member"}
                                 </h2>
                                 <p className="mt-1 font-nav text-xs font-light text-white/40">
@@ -93,6 +97,7 @@ export default function TeamForm({
                             </div>
                             <button
                                 onClick={onClose}
+                                aria-label="Close form"
                                 className="flex h-8 w-8 items-center justify-center border border-white/[0.08] text-white/40 transition hover:border-white/20 hover:text-white"
                             >
                                 <X size={16} />
