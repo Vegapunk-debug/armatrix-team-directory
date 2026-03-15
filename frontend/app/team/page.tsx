@@ -23,3 +23,49 @@ export default function TeamPage() {
     const [error, setError] = useState<string | null>(null);
     const [modalOpen, setModalOpen] = useState(false);
     const [editingMember, setEditingMember] = useState<TeamMember | null>(null);
+
+    const emptyState = useMemo(
+        () => !loading && team.length === 0,
+        [loading, team.length]
+    );
+
+    useEffect(() => {
+        let active = true;
+        fetchTeam()
+            .then((data) => active && setTeam(data))
+            .catch((err) => active && setError(err.message ?? "Unable to load team"))
+            .finally(() => active && setLoading(false));
+
+        return () => {
+            active = false;
+        }
+    }, []);
+
+    const openCreateModal = () => {
+        setEditingMember(null);
+        setModalOpen(true);
+    };
+
+    const openEditModal = (member: TeamMember) => {
+        setEditingMember(member);
+        setModalOpen(true);
+    };
+
+    const handleSubmit = async (payload: TeamMemberPayload) => {
+        if (editingMember) {
+            const updated = await updateMember(editingMember.id, payload);
+            setTeam((prev) =>
+                prev.map((item) => (item.id === updated.id ? updated : item))
+            );
+            return
+        }
+        const created = await createMember(payload);
+        setTeam((prev) => [created, ...prev]);
+    };
+
+    const handleDelete = async (member: TeamMember) => {
+        const confirmed = window.confirm(`Remove ${member.name} from the roster?`);
+        if (!confirmed) return;
+        await deleteMember(member.id);
+        setTeam((prev) => prev.filter((item) => item.id !== member.id));
+    };
