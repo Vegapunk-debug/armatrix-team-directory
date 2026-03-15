@@ -18,7 +18,7 @@ export default function Navbar() {
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className="absolute top-0 left-0 right-0 z-[4]">
+      className="absolute top-0 left-0 right-0 z-[100]">
 
       <div
         className="flex items-start justify-between"
@@ -29,6 +29,9 @@ export default function Navbar() {
         }}
       >
         <Link href="/" className="block flex-shrink-0">
+        <motion.div
+        whileHover={{ scale: 1.15 }}
+        transition={{ type: "spring", stiffness: 300, damping: 15 }}>
           <Image
             src="/logos/logo_white.webp"
             alt="Armatrix"
@@ -39,6 +42,7 @@ export default function Navbar() {
             priority
             unoptimized
           />
+          </motion.div>
         </Link>
 
         <div
@@ -50,7 +54,7 @@ export default function Navbar() {
               <Link
                 key={href}
                 href={href}
-                className={`font-nav text-[17.6px] font-light uppercase transition-colors duration-300 ${
+                className={`nav-link-underline font-nav text-[17.6px] font-light uppercase transition-colors duration-300 ${
                   isActive ? "text-white" : "text-white/65 hover:text-white"
                 }`}
                 style={{ letterSpacing: "2.112px" }}>
