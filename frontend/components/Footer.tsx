@@ -139,15 +139,18 @@ export default function Footer() {
         <div className="mx-auto max-w-7xl px-6 py-8 md:px-10">
 
           <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between" }}>
-            <div style={{ position: "relative", height: "48px", width: "80px" }}>
-              <Image
-                src="/logos/logo_registered.png"
-                alt="Armatrix"
-                fill
-                className="object-contain"
-                style={{ filter: "brightness(0)" }}
-              />
-            </div>
+            <Link href="/" className="transition-opacity hover:opacity-70">
+              <div style={{ position: "relative", height: "48px", width: "80px" }}>
+                <Image
+                  src="/logos/logo_registered.png"
+                  alt="Armatrix"
+                
+                  fill
+                  className="object-contain"
+                  style={{ filter: "brightness(0)" }}
+                />
+              </div>
+            </Link>
             <div
               style={{
                 display: "flex",

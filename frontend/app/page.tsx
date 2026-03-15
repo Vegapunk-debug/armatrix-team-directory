@@ -23,7 +23,7 @@ export default function HomePage() {
           <h1 className="font-display text-[clamp(2.5rem,7vw,5.5rem)] lowercase leading-[1.1] text-white">
             <span className="font-light">the team behind</span>
             <br />
-            <span className="font-bold">armatrix</span>
+            <span className="font-bold text-gradient">armatrix</span>
           </h1>
 
           <div className="mt-12 flex items-center">
