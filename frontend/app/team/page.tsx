@@ -171,3 +171,15 @@ export default function TeamPage() {
                         )}
                     </section>
                 </div>
+            </main>
+            <Footer />
+
+            <TeamForm
+                open={modalOpen}
+                initialMember={editingMember}
+                onClose={() => setModalOpen(false)}
+                onSubmit={handleSubmit}
+            />
+        </>
+    );
+}
