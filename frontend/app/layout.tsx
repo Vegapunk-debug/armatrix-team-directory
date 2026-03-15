@@ -33,7 +33,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       lang="en"
       className={`${raleway.variable} ${inter.variable} ${syne.variable}`}
     >
-      <body className="min-h-screen custom-scrollbar">
+      <body className="min-h-screen custom-scrollbar suppressHydrationWarning">
         <CustomCursor />
         {children}
       </body>

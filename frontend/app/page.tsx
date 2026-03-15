@@ -3,6 +3,8 @@ import Footer from "@/components/Footer";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import ScrollIndicator from "@/components/ScrollIndicator";
+import { motion } from "framer-motion";
+import ParticleBackground from "@/components/ParticleBackground";
 
 
 export default function HomePage() {
@@ -10,6 +12,7 @@ export default function HomePage() {
     <>
       <Navbar />
       <main className="relative min-h-screen overflow-hidden bg-ax-black">
+        <ParticleBackground />
 
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute left-1/3 top-1/3 h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/[0.03] blur-[100px]" />

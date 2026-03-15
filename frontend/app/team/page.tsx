@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import TeamCard from "@/components/TeamCard";
 import TeamForm, { TeamMemberPayload } from "@/components/TeamForm";
 import { createMember, deleteMember, fetchTeam, updateMember, TeamMember } from "@/lib/api";
+import ParticleBackground from "@/components/ParticleBackground";
 
 const containerVariants = {
     hidden: {},
@@ -85,6 +86,9 @@ export default function TeamPage() {
         <>
             <Navbar />
             <main className="relative min-h-screen overflow-hidden bg-ax-black">
+                <div className="opacity-40">
+                <ParticleBackground />
+                </div>
                 <div className="pointer-events-none absolute inset-0">
                     <div className="absolute left-0 top-0 h-[500px] w-[700px] -translate-x-1/3 -translate-y-1/3 rounded-full bg-white/[0.02] blur-[140px]" />
                 </div>
