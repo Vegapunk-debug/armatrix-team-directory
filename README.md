@@ -23,7 +23,7 @@
 
 ---
 
-## ✅ Requirements Fulfillment Matrix
+## Requirements Fulfillment Matrix
 
 I designed this project to strictly adhere to the assignment parameters while adding production-ready polish and backend resilience.
 
@@ -40,7 +40,7 @@ I designed this project to strictly adhere to the assignment parameters while ad
 
 ---
 
-## 🧠 Notable Design Decisions & Architecture
+##  Notable Design Decisions & Architecture
 
 
 
