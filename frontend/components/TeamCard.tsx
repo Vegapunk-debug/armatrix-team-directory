@@ -27,3 +27,27 @@ export default function TeamCard({ member, onEdit, onDelete }: {
 }) {
     const cardRef = useRef<HTMLDivElement>(null);
     const [spotlightPos, setSpotlightPos] = useState({ x: 0, y: 0 });
+    const [isHovered, setIsHovered] = useState(false);
+
+    const handleMouseMove = useCallback(
+        (e: React.MouseEvent<HTMLDivElement>) => {
+            if (!cardRef.current) return;
+            const rect = cardRef.current.getBoundingClientRect();
+            setSpotlightPos({
+                x: e.clientX - rect.left,
+                y: e.clientY - rect.top
+            });
+        },
+        []
+    );
+
+    const handleMouseEnter = useCallback(() => setIsHovered(true), []);
+    const handleMouseLeave = useCallback(() => setIsHovered(false), []);
+
+
+    return (
+        <motion.article>
+            <div>TeamCard</div>
+        </motion.article>
+    );
+}
