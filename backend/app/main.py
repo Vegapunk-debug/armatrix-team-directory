@@ -31,6 +31,14 @@ app.add_middleware(
 def seed_database(db: Session):
     core_data = [
         {
+            "name": "Pulkit Sinha", 
+            "role": "Founding Engineer @ Armatrix",
+            "bio": "Building the future of the Armatrix platform.",
+            "photo_url": "https://i.postimg.cc/xjhYQFJZ/1771490340284.png",
+            "linkedin_url": "https://www.linkedin.com/in/pulkit-sinha-803907200/",
+            "github_url": "https://github.com/pulkit-sinha"
+        },
+        {
             "name": "Vishrant Dave",
             "role": "Co-Founder and CEO @ Armatrix",
             "bio": "Visionary lead at Armatrix.",
@@ -47,13 +55,21 @@ def seed_database(db: Session):
             "github_url": "https://github.com/Prateesh-Awasthi"
         },
         {
-            "name": "Pulkit Sinha", 
+            "name": "Anushtup Nandy",
             "role": "Founding Engineer @ Armatrix",
-            "bio": "Building the future of the Armatrix platform.",
-                "photo_url": "https://i.postimg.cc/xjhYQFJZ/1771490340284.png",
-                "linkedin_url": "https://www.linkedin.com/in/pulkit-sinha-803907200/",
-                "github_url": "https://github.com/pulkit-sinha"
-            }
+            "bio": "Building robotic systems at that intersection",
+            "photo_url": "https://i.postimg.cc/Z5VwtnVn/1726092747509.jpg",
+            "linkedin_url": "https://www.linkedin.com/in/anushtup-nandy/",
+            "github_url": "https://github.com/anushtup-nandy"
+        },
+        {
+            "name": "Ayush Ranjan",
+            "role": "Founding Engineer @ Armatrix",
+            "bio": "Chief Technology Officer",
+            "photo_url": "https://i.postimg.cc/BvzNbyW1/Chief-Technology-Officer.jpg",
+            "linkedin_url": "https://www.linkedin.com/in/ayranjan/",
+            "github_url": "https://github.com"
+        }
         ]
         
     for data in core_data:
@@ -130,6 +146,13 @@ def delete_team_member(member_id: int, db: Session = Depends(get_db)):
     
     if not db_member:
         raise HTTPException(status_code=404, detail="Team member not found")
+
+    protected_names = ["Pulkit Sinha", "Vishrant Dave", "Prateesh Awasthi", "Anushtup Nandy", "Ayush Ranjan"]
+    if db_member.name in protected_names:
+        raise HTTPException(
+            status_code=403, 
+            detail="System Protected: This core team member cannot be deleted."
+        )
         
     db.delete(db_member)
     db.commit()
