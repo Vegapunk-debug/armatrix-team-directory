@@ -29,3 +29,32 @@ const fieldMeta: {
         { key: "linkedin_url", label: "LinkedIn URL", required: true },
         { key: "github_url", label: "GitHub URL (optional)", required: false },
     ];
+
+export default function TeamForm({
+    open,
+    initialMember,
+    onClose,
+    onSubmit,
+} : {
+    open: boolean;
+    initialMember: TeamMember | null;
+    onClose: () => void;
+    onSubmit: (payload: TeamMemberPayload) => Promise<void>;
+}) {
+    const [payload, setPayload] = useState<TeamMemberPayload>(emptyPayload);
+    const [submitting, setSubmitting] = useState(false);
+    const isEditing = Boolean(initialMember);
+
+    useEffect(() => {
+        if (initialMember) {
+            const { id, ...rest } = initialMember;
+            setPayload(rest);
+        } else {
+            setPayload(emptyPayload);
+        }
+    }, [initialMember, open]);
+
+    const handleChange = (key: keyof TeamMemberPayload, value: string) => {
+        setPayload((prev) => ({ ...prev, [key]: value || null }));
+    };
+    
