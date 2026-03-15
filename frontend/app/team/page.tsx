@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import { Plus, Users } from "lucide-react";
+import { Plus, Users, Lock } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import TeamCard from "@/components/TeamCard";
@@ -133,6 +133,10 @@ export default function TeamPage() {
                         <span className="inline-flex items-center gap-1.5 border border-white/[0.08] bg-white/[0.03] px-4 py-1.5 font-nav text-[10px] font-light uppercase text-white/40" style={{ letterSpacing: "2.112px" }}>
                             <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-glow-pulse" />
                             Live
+                        </span>
+                        <span className="inline-flex items-center gap-1.5 border border-white/[0.08] bg-white/[0.03] px-4 py-1.5 font-nav text-[10px] font-light uppercase text-white/40" style={{ letterSpacing: "2.112px" }}>
+                            <Lock size={10} className="text-ax-gold/50" />
+                            Core members: View/Edit only
                         </span>
                     </motion.div>
 
