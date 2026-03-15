@@ -58,3 +58,43 @@ export default function TeamForm({
         setPayload((prev) => ({ ...prev, [key]: value || null }));
     };
     
+    return (
+        <AnimatePresence>
+            {open && (
+                <motion.div
+                    className="fixed inset-0 z-50 flex items-center justify-center px-4"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}>
+
+                    <motion.div
+                        className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+                        onClick={onClose}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                    />
+
+                    <motion.div
+                        className="relative w-full max-w-2xl glass-strong p-8 shadow-card"
+                        initial={{ scale: 0.95, opacity: 0, y: 10 }}
+                        animate={{ scale: 1, opacity: 1, y: 0 }}
+                        exit={{ scale: 0.95, opacity: 0, y: 10 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                    >
+                        <div className="flex items-start justify-between gap-6">
+                            <div>
+                                <h2 className="font-display text-xl font-bold tracking-hero text-white">
+                                    {isEditing ? "Edit team member" : "New team member"}
+                                </h2>
+                                <p className="mt-1 font-nav text-xs font-light text-white/40">
+                                    Keep profiles crisp and consistent with the Armatrix.
+                                </p>
+                            </div>
+                            <button
+                                onClick={onClose}
+                                className="flex h-8 w-8 items-center justify-center border border-white/[0.08] text-white/40 transition hover:border-white/20 hover:text-white"
+                            >
+                                <X size={16} />
+                            </button>
+                        </div>
