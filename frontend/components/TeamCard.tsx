@@ -104,6 +104,61 @@ export default function TeamCard({ member, onEdit, onDelete }: {
                         </div>
                     </div>
                     <div className="flex flex-col gap-3 p-5 pt-4">
+                        <div>
+                            <motion.h3
+                                className="font-display text-lg font-bold tracking-hero text-white"
+                                initial={{ opacity: 0, x: -10 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.4, delay: 0.1 }}
+                                viewport={{ once: true }}>
+                                {member.name}
+                            </motion.h3>
+                            <motion.p
+                                className="mt-0.5 font-nav text-[11px] font-light uppercase tracking-nav text-gradient"
+                                initial={{ opacity: 0, x: -10 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.4, delay: 0.2 }}
+                                viewport={{ once: true }}>
+                                {member.role}
+                            </motion.p>
+                        </div>
+
+                        <motion.p
+                            className="font-body text-sm font-normal leading-relaxed text-white/55 line-clamp-3"
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            transition={{ duration: 0.5, delay: 0.3 }}
+                            viewport={{ once: true }}>
+                            {member.bio}
+                        </motion.p>
+
+                        <motion.div
+                            className="mt-1 flex items-center gap-2"
+                            initial={{ opacity: 0, y: 8 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.4, delay: 0.4 }}
+                            viewport={{ once: true }}>
+                            <a
+                                href={member.linkedin_url || "#"}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/[0.08] text-white/40 transition-all duration-300 hover:border-ax-gold/30 hover:text-ax-gold hover:bg-ax-gold/[0.05] hover:-translate-y-0.5"
+                                aria-label="LinkedIn">
+                                <Linkedin size={14} />
+                            </a>
+                            {member.github_url && (
+                                <a
+                                    href={member.github_url}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/[0.08] text-white/40 transition-all duration-300 hover:border-ax-gold/30 hover:text-ax-gold hover:bg-ax-gold/[0.05] hover:-translate-y-0.5"
+                                    aria-label="GitHub">
+                                    <Github size={14} />
+                                </a>
+                            )}
+                        </motion.div>
+                    </div>
+
                 </div>
             </div>
         </motion.article>
