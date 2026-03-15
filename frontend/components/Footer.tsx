@@ -6,11 +6,10 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <>
-      {/* ── Contact Section — exact armatrix.in clone ── */}
+      {/* ── Contact Section — exact armatrix.in clone of Footer ── */}
       <section id="contact" style={{ backgroundColor: "#ffffff" }}>
         <div className="mx-auto max-w-7xl px-6 py-16 md:px-10 md:py-24">
 
-          {/* "→ CONTACT" label — small uppercase nav label */}
           <p
             style={{
               fontFamily: "var(--font-inter), sans-serif",
@@ -25,7 +24,6 @@ export default function Footer() {
             Contact
           </p>
 
-          {/* "Get in touch" — Raleway 300, 120px, letter-spacing 6px */}
           <h2
             style={{
               fontFamily: "var(--font-raleway), sans-serif",
@@ -40,7 +38,6 @@ export default function Footer() {
             Get in touch
           </h2>
 
-          {/* "Start a conversation" — Inter 400, 16px */}
           <p
             style={{
               fontFamily: "var(--font-inter), sans-serif",
@@ -54,7 +51,6 @@ export default function Footer() {
             Start a conversation
           </p>
 
-          {/* Email link — gradient, border-bottom underline, grows up on hover */}
           <a
             href="mailto:contact@armatrix.in"
             className="text-gradient email-hover-link"
@@ -79,9 +75,7 @@ export default function Footer() {
             contact@armatrix.in
           </a>
 
-          {/* Our Office block */}
           <div style={{ marginTop: "48px" }}>
-            {/* "Our Office:" — Raleway 500, 30px, rgba(0,0,0,0.95) — bold & dark */}
             <p
               style={{
                 fontFamily: "var(--font-raleway), sans-serif",
@@ -94,7 +88,6 @@ export default function Footer() {
               Our Office:
             </p>
 
-            {/* Address — Inter 300, 17.6px */}
             <div
               style={{
                 fontFamily: "var(--font-inter), sans-serif",
@@ -110,9 +103,8 @@ export default function Footer() {
               <p style={{ margin: 0 }}>Bengaluru - 560077</p>
             </div>
 
-            {/* View on Map — Inter 400, 16px */}
             <a
-              href="https://maps.google.com/?q=RK+Hegde+Nagar+Bengaluru+560077"
+              href="https://www.google.com/maps/place/Armatrix/@13.0685442,77.6267737,17z/data=!4m6!3m5!1s0x3bae190047f18985:0xdaab568fd8feea1!8m2!3d13.0685442!4d77.6267737!16s%2Fg%2F11xlk60v3p?entry=ttu&g_ep=EgoyMDI2MDMxMS4wIKXMDSoASAFQAw%3D%3D"
               target="_blank"
               rel="noreferrer"
               style={{
@@ -143,11 +135,9 @@ export default function Footer() {
         </div>
       </section>
 
-      {/* ── Footer bar — pure white, 1px top divider ── */}
       <footer style={{ backgroundColor: "#ffffff", borderTop: "1px solid rgba(0,0,0,0.1)" }}>
         <div className="mx-auto max-w-7xl px-6 py-8 md:px-10">
 
-          {/* Logo + links row */}
           <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between" }}>
             <div style={{ position: "relative", height: "48px", width: "80px" }}>
               <Image
@@ -170,16 +160,15 @@ export default function Footer() {
                 color: "rgba(0,0,0,0.6)",
               }}
             >
-              <Link href="https://armatrix.in" target="_blank" style={{ color: "inherit", textDecoration: "none" }}>
+              <Link href="https://drive.google.com/drive/folders/1Js1km-jlQXZ7qOTnQt3ktVlDKXLuZdQt" target="_blank" style={{ color: "inherit", textDecoration: "none" }}>
                 Media Kit
               </Link>
-              <Link href="https://armatrix.in" target="_blank" style={{ color: "inherit", textDecoration: "none" }}>
+              <Link href="https://drive.google.com/file/d/1ty-TytK1a0_HvLeUDKtt9Eirrw5tyJTt/view" target="_blank" style={{ color: "inherit", textDecoration: "none" }}>
                 Privacy Policy
               </Link>
             </div>
           </div>
 
-          {/* Bottom copyright — 1px divider above, centered */}
           <div
             style={{
               marginTop: "32px",
