@@ -98,3 +98,24 @@ export default function TeamForm({
                                 <X size={16} />
                             </button>
                         </div>
+
+                        <form
+                            className="mt-6 flex flex-col gap-4"
+                            onSubmit={async (e) => {
+                                e.preventDefault();
+                                setSubmitting(true);
+                                try {
+                                    const finalPayload = { ...payload };
+                                    if (!finalPayload.photo_url) {
+                                        finalPayload.photo_url = `https://ui-avatars.com/api/?name=${encodeURIComponent(
+                                            finalPayload.name
+                                        )}&background=random&color=fff`;
+                                    }
+
+                                    await onSubmit(finalPayload);
+                                    onClose();
+                                } finally {
+                                    setSubmitting(false);
+                                }
+                            }}
+                        >
