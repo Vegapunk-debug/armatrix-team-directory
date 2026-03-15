@@ -27,11 +27,7 @@ export const metadata = {
   keywords: ["armatrix", "robotics", "team", "engineering", "deep-tech"],
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html
       lang="en"

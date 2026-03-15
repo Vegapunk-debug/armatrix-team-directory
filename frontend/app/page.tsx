@@ -2,6 +2,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import ScrollIndicator from "@/components/ScrollIndicator";
+
 
 export default function HomePage() {
   return (
@@ -34,6 +36,7 @@ export default function HomePage() {
           </div>
           </div>
           
+       <ScrollIndicator />   
       </main>
       <Footer />
     </>
