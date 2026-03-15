@@ -71,6 +71,39 @@ export default function TeamCard({ member, onEdit, onDelete }: {
                             : "none"
                     }} />
 
+                <div className="relative rounded-xl border border-white/[0.08] bg-ax-surface m-[1px] overflow-hidden transition-all duration-500 group-hover:border-white/[0.15] group-hover:shadow-glow">
+                    <div className="relative h-56 w-full overflow-hidden sm:h-64">
+
+                        <motion.img
+                            src={member.photo_url || `https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&background=random&color=fff`}
+                            alt={member.name}
+                            className="h-full w-full object-cover"
+                            initial={{ scale: 1.1 }}
+                            animate={{ scale: 1 }}
+                            transition={{ duration: 1.2, ease: "easeOut" }}
+                            whileHover={{ scale: 1.05 }} />
+
+                        <div className="absolute inset-0 bg-gradient-to-t from-ax-surface via-ax-surface/40 to-transparent" />
+
+                        <div className="absolute right-3 top-3 z-20 flex gap-2 opacity-0 transition-all duration-300 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0">
+
+                            <button
+                                onClick={() => onEdit(member)}
+                                className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/10 backdrop-blur-md transition-all duration-200 hover:bg-white/20 hover:scale-110"
+                                aria-label="Edit member">
+                                <Pencil size={14} className="text-white" />
+                            </button>
+
+                            <button
+                                onClick={() => onDelete(member)}
+                                className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/10 backdrop-blur-md transition-all duration-200 hover:bg-red-500/30 hover:scale-110"
+                                aria-label="Delete member">
+                                <Trash2 size={14} className="text-white" />
+                            </button>
+
+                        </div>
+                    </div>
+                    <div className="flex flex-col gap-3 p-5 pt-4">
                 </div>
             </div>
         </motion.article>
