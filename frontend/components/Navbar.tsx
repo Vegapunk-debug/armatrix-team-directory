@@ -1,23 +1,65 @@
+"use client";
+
 import Link from "next/link";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { motion } from "framer-motion";
+
+const links = [
+  { href: "/team", label: "Team" },
+  { href: "/#contact", label: "Contact" }
+];
 
 export default function Navbar() {
+  const pathname = usePathname();
+
   return (
-    <nav className="fixed top-0 z-50 w-full border-b border-white/10 bg-ax-surface/80 backdrop-blur-xl">
-      <div className="mx-auto max-w-7xl px-10 py-4 md:px-16 lg:px-20">
-        <div className="flex items-center justify-between">
-          <Link href="/" className="font-display text-xl font-bold text-white">
-            <span className="font-light">the team behind</span>
-            <span className="font-bold">armatrix</span>
-          </Link>
-          <Link
-            href="/team"
-            className="font-nav text-[13px] font-light uppercase text-white/40 transition hover:text-white/70"
-            style={{ letterSpacing: "2.112px" }}
-          >
-            Team
-          </Link>
+    <motion.nav
+      initial={{ y: -20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      className="absolute top-0 left-0 right-0 z-[4]">
+
+      <div
+        className="flex items-start justify-between"
+        style={{
+          paddingTop: "51px",
+          paddingLeft: "15%",
+          paddingRight: "15%",
+        }}
+      >
+        <Link href="/" className="block flex-shrink-0">
+          <Image
+            src="/logos/logo_white.webp"
+            alt="Armatrix"
+            width={120}
+            height={120}
+            className="h-[120px] w-[120px]"
+            style={{ objectFit: "contain", width: "120px", height: "120px" }}
+            priority
+            unoptimized
+          />
+        </Link>
+
+        <div
+          className="flex items-center gap-10"
+          style={{ paddingTop: "46px" }}>
+          {links.map(({ href, label }) => {
+            const isActive = pathname === href;
+            return (
+              <Link
+                key={href}
+                href={href}
+                className={`font-nav text-[17.6px] font-light uppercase transition-colors duration-300 ${
+                  isActive ? "text-white" : "text-white/65 hover:text-white"
+                }`}
+                style={{ letterSpacing: "2.112px" }}>
+                {label}
+              </Link>
+            );
+          })}
         </div>
       </div>
-    </nav>
+    </motion.nav>
   );
 }
