@@ -13,7 +13,7 @@
 
 ---
 
-## 🔗 Quick Links
+## Quick Links
 
 | Resource | Link |
 | :--- | :--- |
@@ -57,7 +57,7 @@ I leaned heavily into Armatrix's deep-tech brand identity. The frontend utilizes
 
 ---
 
-## 💻 Local Setup Instructions
+##  Local Setup Instructions
 
 Follow these steps to run both the frontend and backend locally on your machine.
 
