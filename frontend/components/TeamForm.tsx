@@ -119,3 +119,30 @@ export default function TeamForm({
                                 }
                             }}
                         >
+                            <div className="grid gap-4 sm:grid-cols-2">
+                                {fieldMeta.map(({ key, label, required, multiline }) => (
+                                    <label
+                                        key={key}
+                                        className={`flex flex-col gap-1.5 font-nav text-[11px] font-light uppercase tracking-nav text-white/50 ${multiline ? "sm:col-span-2" : ""
+                                            }`}
+                                    >
+                                        {label}
+                                        {multiline ? (
+                                            <textarea
+                                                value={(payload[key] as string) ?? ""}
+                                                onChange={(e) => handleChange(key, e.target.value)}
+                                                required={required}
+                                                rows={3}
+                                                className="mt-1 w-full border border-white/[0.08] bg-white/[0.03] px-4 py-3 font-body text-sm font-normal normal-case tracking-normal text-white outline-none transition focus:border-ax-gold/40"
+                                            />
+                                        ) : (
+                                            <input
+                                                value={(payload[key] as string) ?? ""}
+                                                onChange={(e) => handleChange(key, e.target.value)}
+                                                required={required}
+                                                className="mt-1 w-full border border-white/[0.08] bg-white/[0.03] px-4 py-3 font-body text-sm font-normal normal-case tracking-normal text-white outline-none transition focus:border-ax-gold/40"
+                                            />
+                                        )}
+                                    </label>
+                                ))}
+                            </div>
