@@ -29,7 +29,10 @@ export default function TeamCard({ member, onEdit, onDelete }: {
     const [spotlightPos, setSpotlightPos] = useState({ x: 0, y: 0 });
     const [isHovered, setIsHovered] = useState(false);
 
-    const isLeadership = member.role.toLowerCase().includes("ceo") || member.role.toLowerCase().includes("co-founder");
+    const protectedNames = ["Pulkit Sinha", "Vishrant Dave", "Prateesh Awasthi", "Anushtup Nandy", "Ayush Ranjan"]
+
+    const isLeadership = protectedNames.includes(member.name);
+    // const isLeadership = member.role.toLowerCase().includes("ceo") || member.role.toLowerCase().includes("co-founder");
 
     const handleMouseMove = useCallback(
         (e: React.MouseEvent<HTMLDivElement>) => {
