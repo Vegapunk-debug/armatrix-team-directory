@@ -1,6 +1,43 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-ax-black: #000000;
+  --color-ax-surface: #0a0a0a;
+  --color-ax-surface-2: #111111;
+  --color-ax-white: #ffffff;
+  --color-ax-dim: rgba(255, 255, 255, 0.65);
+  --color-ax-muted: rgba(255, 255, 255, 0.4);
+  --color-ax-line: rgba(255, 255, 255, 0.1);
+  --color-ax-gold: #ffc864;
+  --color-ax-olive: #96b464;
+  --color-ax-btn: #efefef;
+
+  --font-display: var(--font-raleway), ui-sans-serif, system-ui;
+  --font-body: var(--font-raleway), ui-sans-serif, system-ui;
+  --font-nav: var(--font-inter), ui-sans-serif, system-ui;
+  --font-accent: var(--font-syne), ui-sans-serif, system-ui;
+
+  --shadow-card: 0 0 0 1px rgba(255, 255, 255, 0.06), 0 24px 64px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 20px rgba(255, 200, 100, 0.1), 0 0 60px rgba(255, 200, 100, 0.04);
+
+
+  --animate-shimmer: shimmer 2s ease-in-out infinite;
+  --animate-fade-up: fade-up 0.6s ease-out forwards;
+  --animate-glow-pulse: glow-pulse 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes fade-up {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
 
 :root {
   color-scheme: dark;
@@ -11,7 +48,10 @@ html {
 }
 
 body {
-  @apply bg-ax-black text-white font-body;
+  background-color: var(--color-ax-black);
+  color: white;
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
 }
 
 ::selection {
@@ -21,7 +61,7 @@ body {
 @layer utilities {
   .text-gradient {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, #FFC864 0%, #96B464 100%);
+    background-image: linear-gradient(135deg, #ffc864 0%, #96b464 100%);
   }
 
   .glass {
@@ -35,6 +75,7 @@ body {
   .tech-corners {
     position: relative;
   }
+
   .tech-corners::before,
   .tech-corners::after {
     content: "";
@@ -45,12 +86,14 @@ body {
     pointer-events: none;
     transition: border-color 0.3s;
   }
+
   .tech-corners::before {
     top: -1px;
     left: -1px;
     border-top: 1px solid;
     border-left: 1px solid;
   }
+
   .tech-corners::after {
     bottom: -1px;
     right: -1px;
@@ -84,9 +127,11 @@ body {
   .custom-scrollbar::-webkit-scrollbar {
     width: 4px;
   }
+
   .custom-scrollbar::-webkit-scrollbar-track {
     background: transparent;
   }
+
   .custom-scrollbar::-webkit-scrollbar-thumb {
     background: rgba(255, 255, 255, 0.1);
     border-radius: 2px;

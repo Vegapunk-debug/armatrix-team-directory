@@ -23,6 +23,17 @@ export default function TeamPage() {
     const [error, setError] = useState<string | null>(null);
     const [modalOpen, setModalOpen] = useState(false);
     const [editingMember, setEditingMember] = useState<TeamMember | null>(null);
+    
+    const sortedTeam = useMemo(() => {
+        const leadership = team.filter((m) => 
+            m.role.toLowerCase().includes("ceo") || m.role.toLowerCase().includes("co-founder"))
+
+        const others = team.filter((m) => 
+            !m.role.toLowerCase().includes("ceo") && 
+            !m.role.toLowerCase().includes("co-founder"));
+    
+        return [...leadership, ...others];
+    }, [team]);
 
     const emptyState = useMemo(
         () => !loading && team.length === 0,
@@ -159,7 +170,7 @@ export default function TeamPage() {
                                 initial="hidden"
                                 animate="visible"
                             >
-                                {team.map((member) => (
+                                {sortedTeam.map((member) => (
                                     <TeamCard
                                         key={member.id}
                                         member={member}

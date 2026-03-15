@@ -29,6 +29,8 @@ export default function TeamCard({ member, onEdit, onDelete }: {
     const [spotlightPos, setSpotlightPos] = useState({ x: 0, y: 0 });
     const [isHovered, setIsHovered] = useState(false);
 
+    const isLeadership = member.role.toLowerCase().includes("ceo") || member.role.toLowerCase().includes("co-founder");
+
     const handleMouseMove = useCallback(
         (e: React.MouseEvent<HTMLDivElement>) => {
             if (!cardRef.current) return;
@@ -93,13 +95,16 @@ export default function TeamCard({ member, onEdit, onDelete }: {
                                 aria-label="Edit member">
                                 <Pencil size={14} className="text-white" />
                             </button>
-
-                            <button
-                                onClick={() => onDelete(member)}
-                                className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/10 backdrop-blur-md transition-all duration-200 hover:bg-red-500/30 hover:scale-110"
-                                aria-label="Delete member">
+                            
+                            {!isLeadership && (
+                                <button
+                                  onClick={() => onDelete(member)}
+                                  className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/10 backdrop-blur-md transition-all duration-200 hover:bg-red-500/30 hover:scale-110"
+                                  aria-label="Delete member"
+                                >
                                 <Trash2 size={14} className="text-white" />
-                            </button>
+                                </button>
+                            )}
 
                         </div>
                     </div>
