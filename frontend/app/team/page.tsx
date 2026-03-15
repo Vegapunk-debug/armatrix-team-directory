@@ -124,3 +124,50 @@ export default function TeamPage() {
                             Live
                         </span>
                     </motion.div>
+
+                    <section className="mt-12">
+                        {loading && (
+                            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                                {Array.from({ length: 6 }).map((_, i) => (
+                                    <div
+                                        key={i}
+                                        className="h-80 shimmer border border-white/[0.04]"
+                                    />
+                                ))}
+                            </div>
+                        )}
+
+                        {error && (
+                            <div className="border border-red-500/20 bg-red-500/5 px-6 py-12 text-center font-body text-sm text-red-300">
+                                {error}
+                            </div>
+                        )}
+
+                        {emptyState && (
+                            <div className="border border-white/[0.06] bg-ax-surface px-6 py-16 text-center">
+                                <Users size={32} className="mx-auto mb-4 text-white/20" />
+                                <p className="font-body text-sm text-white/40">
+                                    No team members yet. Add the first profile to begin.
+                                </p>
+                            </div>
+                        )}
+
+                        {!loading && !error && team.length > 0 && (
+                            <motion.div
+                                className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+                                variants={containerVariants}
+                                initial="hidden"
+                                animate="visible"
+                            >
+                                {team.map((member) => (
+                                    <TeamCard
+                                        key={member.id}
+                                        member={member}
+                                        onEdit={openEditModal}
+                                        onDelete={handleDelete}
+                                    />
+                                ))}
+                            </motion.div>
+                        )}
+                    </section>
+                </div>
