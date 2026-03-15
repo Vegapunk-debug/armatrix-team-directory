@@ -146,3 +146,27 @@ export default function TeamForm({
                                     </label>
                                 ))}
                             </div>
+
+                            <div className="mt-8 flex items-center justify-end gap-3">
+                                <button
+                                    type="button"
+                                    onClick={onClose}
+                                    className="border border-white/[0.08] px-5 py-2.5 font-nav text-[11px] font-light uppercase tracking-nav text-white/65 transition hover:border-white/20 hover:text-white"
+                                >
+                                    Cancel
+                                </button>
+                                <button
+                                    type="submit"
+                                    disabled={submitting}
+                                    className="bg-ax-btn px-5 py-2.5 font-nav text-[11px] font-medium uppercase tracking-nav text-black transition hover:bg-white disabled:opacity-50"
+                                >
+                                    {submitting ? "Saving…" : isEditing ? "Save changes" : "Add member"}
+                                </button>
+                            </div>
+                        </form>
+                    </motion.div>
+                </motion.div>
+            )}
+        </AnimatePresence>
+    );
+}
