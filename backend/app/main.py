@@ -18,11 +18,6 @@ app = FastAPI(
     version="1.0.0"
 )
 
-# origins = [
-#     "http://localhost:3000", 
-#     "https://armatrix-team-directory.vercel.app"
-# ]
-
 app.add_middleware(
     CORSMiddleware,
     # allow_origins=[os.getenv("FRONTEND_URL", "http://localhost:3000"),
@@ -32,6 +27,58 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"]
 )
+
+def seed_database(db: Session):
+    core_data = [
+        {
+            "name": "Vishrant Dave",
+            "role": "Co-Founder and CEO @ Armatrix",
+            "bio": "Visionary lead at Armatrix.",
+            "photo_url": "https://i.postimg.cc/kM8YVjYY/armatrix-ceo.jpg",
+            "linkedin_url": "https://www.linkedin.com/in/vishrant-dave/",
+            "github_url": "https://github.com/Vishrant-Dave"
+        },
+        {
+            "name": "Prateesh Awasthi",
+            "role": "Co-Founder @ Armatrix",
+            "bio": "Strategic architect and co-lead.",
+            "photo_url": "https://i.postimg.cc/8zr7D6zH/co-found.jpg",
+            "linkedin_url": "https://in.linkedin.com/in/prateesh-awasthi-4a5215109/",
+            "github_url": "https://github.com/Prateesh-Awasthi"
+        },
+        {
+            "name": "Pulkit Sinha", 
+            "role": "Founding Engineer @ Armatrix",
+            "bio": "Building the future of the Armatrix platform.",
+                "photo_url": "https://i.postimg.cc/xjhYQFJZ/1771490340284.png",
+                "linkedin_url": "https://www.linkedin.com/in/pulkit-sinha-803907200/",
+                "github_url": "https://github.com/pulkit-sinha"
+            }
+        ]
+        
+    for data in core_data:
+            db_member = db.query(models.TeamMember).filter(models.TeamMember.name == data["name"]).first()
+        
+            if db_member:
+                print(f"Updating existing member: {data['name']}")
+                for key, value in data.items():
+                    setattr(db_member, key, value)
+            else:
+                print(f"Creating new member: {data['name']}")
+                new_member = models.TeamMember(**data)
+                db.add(new_member)
+        
+    db.commit()
+
+@app.on_event("startup")
+def startup_event():
+    models.Base.metadata.create_all(bind=engine)
+    db = SessionLocal()
+    try:
+        seed_database(db)
+    finally:
+        db.close()
+    
 
 def get_db():
     db = SessionLocal()
@@ -50,7 +97,7 @@ def health_check():
 
 @app.get("/api/team", response_model=List[schemas.TeamMemberResponse])
 def get_team(db: Session = Depends(get_db)):
-    return db.query(models.TeamMember).all()
+    return db.query(models.TeamMember).order_by(models.TeamMember.id.asc()).all()
 
 
 @app.post("/api/team", response_model=schemas.TeamMemberResponse)
