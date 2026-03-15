@@ -29,6 +29,7 @@ export default function TeamCard({ member, onEdit, onDelete }: {
     const [spotlightPos, setSpotlightPos] = useState({ x: 0, y: 0 });
     const [isHovered, setIsHovered] = useState(false);
 
+    
     const protectedNames = ["Pulkit Sinha", "Vishrant Dave", "Prateesh Awasthi", "Anushtup Nandy", "Ayush Ranjan"]
 
     const isLeadership = protectedNames.includes(member.name);
@@ -65,14 +66,14 @@ export default function TeamCard({ member, onEdit, onDelete }: {
                 <div
                     className="absolute -inset-[1px] rounded-xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                     style={{
-                        background: isHovered ? `radial-gradient(600px circle at ${spotlightPos.x}px ${spotlightPos.y}px, rgba(255, 200, 100, 0.3), rgba(150, 180, 100, 0.12) 40%, transparent 70%)` : "none"
+                        background: isHovered ? `radial-gradient(600px circle at ${spotlightPos.x}px ${spotlightPos.y}px, rgba(212, 255, 0, 0.15), rgba(212, 255, 0, 0.05) 40%, transparent 70%)` : "none"
                     }} />
 
                 <div
                     className="absolute inset-0 z-10 rounded-xl opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none"
                     style={{
                         background: isHovered
-                            ? `radial-gradient(350px circle at ${spotlightPos.x}px ${spotlightPos.y}px, rgba(255, 200, 100, 0.07), transparent 60%)`
+                            ? `radial-gradient(350px circle at ${spotlightPos.x}px ${spotlightPos.y}px, rgba(212, 255, 0, 0.07), transparent 60%)`
                             : "none"
                     }} />
 
@@ -150,7 +151,7 @@ export default function TeamCard({ member, onEdit, onDelete }: {
                                 href={member.linkedin_url || "#"}
                                 target="_blank"
                                 rel="noreferrer"
-                                className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/[0.08] text-white/40 transition-all duration-300 hover:border-ax-gold/30 hover:text-ax-gold hover:bg-ax-gold/[0.05] hover:-translate-y-0.5"
+                                className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/[0.08] text-white/40 transition-all duration-300 hover:border-[#D4FF00]/40 hover:text-[#D4FF00] hover:bg-[#D4FF00]/[0.05] hover:-translate-y-0.5"
                                 aria-label="LinkedIn">
                                 <Linkedin size={14} />
                             </a>
@@ -159,7 +160,7 @@ export default function TeamCard({ member, onEdit, onDelete }: {
                                     href={member.github_url}
                                     target="_blank"
                                     rel="noreferrer"
-                                    className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/[0.08] text-white/40 transition-all duration-300 hover:border-ax-gold/30 hover:text-ax-gold hover:bg-ax-gold/[0.05] hover:-translate-y-0.5"
+                                    className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/[0.08] text-white/40 transition-all duration-300 hover:border-[#D4FF00]/40 hover:text-[#D4FF00] hover:bg-[#D4FF00]/[0.05] hover:-translate-y-0.5"
                                     aria-label="GitHub">
                                     <Github size={14} />
                                 </a>

@@ -73,16 +73,16 @@ def seed_database(db: Session):
         ]
         
     for data in core_data:
-            db_member = db.query(models.TeamMember).filter(models.TeamMember.name == data["name"]).first()
+        db_member = db.query(models.TeamMember).filter(models.TeamMember.name == data["name"]).first()
         
-            if db_member:
-                print(f"Updating existing member: {data['name']}")
-                for key, value in data.items():
-                    setattr(db_member, key, value)
-            else:
-                print(f"Creating new member: {data['name']}")
-                new_member = models.TeamMember(**data)
-                db.add(new_member)
+        if db_member:
+            print(f"Updating existing member: {data['name']}")
+            for key, value in data.items():
+                setattr(db_member, key, value)
+        else:
+            print(f"Creating new member: {data['name']}")
+            new_member = models.TeamMember(**data)
+            db.add(new_member)
         
     db.commit()
 
