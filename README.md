@@ -40,14 +40,14 @@ I designed this project to strictly adhere to the assignment parameters while ad
 
 | Armatrix Requirement | My Implementation |
 | :--- | :--- |
-| **REST endpoints (Fetch, Add, Edit, Delete)** | Fully implemented via FastAPI with standard HTTP methods (GET, POST, PUT, DELETE). |
-| **Flexible Team Member Schema** | Built using Pydantic models. Includes `id`, `name`, `role`, `bio`, `photo_url`, `github_url`, and `linkedin_url`. |
-| **Data Storage (In-memory or DB)** | Exceeded baseline: Implemented a relational **SQLite database** using SQLAlchemy for actual data persistence. |
-| **Frontend React + Next.js `/team` page** | Built a modular Next.js application with a dedicated `/team` route to fetch and render the API data. |
-| **Brand Feel & Quality Taste** | Extracted exact typography and brand colors directly from `armatrix.in` for native consistency. |
-| **Responsive Design** | 100% responsive using Tailwind CSS (Mobile, Tablet, and Desktop breakpoints). |
-| **Creative Flourishes** | Integrated `framer-motion` for smooth, staggered card reveals and dynamic background breathing orbs. |
-| **Free Tier Deployment** | Deployed seamlessly across **Vercel** (FE) and **Render** (BE). |
+| **REST Endpoints** | Fully implemented via FastAPI (GET, POST, PUT, DELETE). |
+| **Flexible Schema** | Built using Pydantic models (`id`, `name`, `role`, `bio`, `photo_url`, `socials`). |
+| **Data Storage** | Exceeded baseline: Integrated **Neon PostgreSQL** for permanent cloud storage. |
+| **Frontend UI** | Modular Next.js application fetching and rendering live API data. |
+| **Brand Taste** | Exact typography and signature `#D4FF00` accents extracted from `armatrix.in`. |
+| **Responsive Design** | 100% fluid using Tailwind CSS (Mobile, Tablet, Desktop). |
+| **Creative Flourishes** | `framer-motion` staggered reveals and interactive radial glow effects. |
+| **Free Deployment** | Deployed seamlessly across **Vercel** (FE) and **Render** (BE). |
 
 ---
 
