@@ -19,7 +19,7 @@
 | :--- | :--- |
 | **Frontend Live (Vercel)** | https://armatrix-team-directory.vercel.app/ |
 | **Backend API (Render)** | https://armatrix-api-8p2f.onrender.com |
-| **API Docs (Swagger)**| `[Insert Render URL /docs]` |
+| **API Docs (Swagger)**| https://armatrix-api-8p2f.onrender.com/docs |
 
 ---
 
