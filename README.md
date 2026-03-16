@@ -12,8 +12,9 @@
 </div>
 
 ---
-
-## Quick Links
+<div align="center">
+  
+## **Quick Links**
 
 | Resource | Link |
 | :--- | :--- |
@@ -21,9 +22,14 @@
 | **Backend API (Render)** | [Armatrix Team Directory Backend](https://armatrix-api-8p2f.onrender.com) |
 | **API Docs (Swagger)**| [Armatrix Team Directory Docs](https://armatrix-api-8p2f.onrender.com/docs) |
 
----
+</div>
 
-##  Notable Design Decisions & Architecture
+---
+<div align="center">
+  
+##  **Notable Design Decisions & Architecture**
+
+</div>
 
 The project uses a monorepo structure to keep client and server code tightly coupled for easier review. Beyond standard CRUD requirements, I implemented several specific architecture decisions to ensure a robust, production-grade user experience:
 
@@ -32,9 +38,11 @@ The project uses a monorepo structure to keep client and server code tightly cou
 * **Leadership Hierarchy & Protection:** Engineered custom sorting to permanently pin the 5 core founders to the top of the grid, conditionally hiding their delete buttons to protect data integrity without requiring auth.
   
 * **"Premium SaaS" Aesthetic:** Leveraged `framer-motion` and custom interactive radial glows using Armatrix's signature `#D4FF00` neon accent to deliver a high-end, deep-tech user experience.
----
 
-## Requirements Fulfillment Matrix
+---
+<div align="center">
+  
+## **Requirements Fulfillment Matrix**
 
 I designed this project to strictly adhere to the assignment parameters while adding production-ready polish and backend resilience.
 
@@ -49,9 +57,15 @@ I designed this project to strictly adhere to the assignment parameters while ad
 | **Creative Flourishes** | `framer-motion` staggered reveals and interactive radial glow effects. |
 | **Free Deployment** | Deployed seamlessly across **Vercel** (FE) and **Render** (BE). |
 
+</div>
+
 ---
 
-##  Local Setup Instructions
+<div align="center">
+  
+##  **Local Setup Instructions**
+
+</div>
 
 Follow these steps to run both the frontend and backend locally on your machine.
 
@@ -90,4 +104,8 @@ npm install
 npm run dev
 ```
 
-# Thank You 
+<div align="center">
+  
+# ***Thank You !***
+
+</div>
