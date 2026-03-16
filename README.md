@@ -69,12 +69,16 @@ I designed this project to strictly adhere to the assignment parameters while ad
 
 Follow these steps to run both the frontend and backend locally on your machine.
 
-### Prerequisites
-* Node.js (v18+)
-* Python (3.9+)
+> [!NOTE]
+> ### Prerequisites
+> * Node.js (v18+)
+> * Python (3.9+)
 
 ### 1. Backend Setup (FastAPI)
-Open a terminal and navigate to the backend directory:
+```diff
++ Open the terminal and navigate to the backend directory:
+```
+
 ```bash
 cd backend
 
@@ -93,7 +97,9 @@ uvicorn app.main:app --reload
 ```
 
 ### 2. Frontend Setup (React + Nextjs)
-Open a terminal and navigate to the frontend directory:
+```diff
++ Open the terminal and navigate to the frontend directory:
+```
 ```bash
 cd frontend
 
