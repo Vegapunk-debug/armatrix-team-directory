@@ -17,10 +17,24 @@
 
 | Resource | Link |
 | :--- | :--- |
-| **Frontend Live (Vercel)** | `[Insert Vercel URL]` |
-| **Backend API (Render)** | `[Insert Render API URL, e.g., /api/team]` |
+| **Frontend Live (Vercel)** | https://armatrix-team-directory.vercel.app/ |
+| **Backend API (Render)** | https://armatrix-api-8p2f.onrender.com |
 | **API Docs (Swagger)**| `[Insert Render URL /docs]` |
 
+---
+
+##  Notable Design Decisions & Architecture
+
+The project uses a monorepo structure to keep client and server code tightly coupled for easier review. Beyond standard CRUD requirements, I implemented several specific architecture decisions to ensure a robust, production-grade user experience:
+
+**1. Beating Ephemeral Storage with Cloud PostgreSQL**
+Render's free tier utilizes ephemeral storage that wipes the local disk on every server spin-down. If I used a standard SQLite file, the team directory would reset and delete user data every 15 minutes. To guarantee permanent data persistence, I connected the production API to a fully managed **Neon PostgreSQL** database. I also engineered the `database.py` file to automatically fall back to local SQLite if no cloud URL is detected, ensuring frictionless local development.
+
+**2. Core Team Protection & Sorting Hierarchy**
+To fulfill the requirement that anyone can Add/Edit/Delete without authentication, I had to protect the integrity of the Armatrix founders. The UI conditionally hides the delete button for the 5 core members, and custom sorting logic guarantees they are strictly pinned to the top of the grid, regardless of how many test users are added later.
+
+**3. "Premium SaaS" Aesthetic**
+I leaned heavily into Armatrix's deep-tech brand identity. The frontend utilizes a dark mode UI, staggered framer-motion reveals, and interactive radial glow effects using the signature `#D4FF00` neon accent to make the app feel like a premium tech product.
 ---
 
 ## Requirements Fulfillment Matrix
@@ -37,23 +51,6 @@ I designed this project to strictly adhere to the assignment parameters while ad
 | **Responsive Design** | 100% responsive using Tailwind CSS (Mobile, Tablet, and Desktop breakpoints). |
 | **Creative Flourishes** | Integrated `framer-motion` for smooth, staggered card reveals and dynamic background breathing orbs. |
 | **Free Tier Deployment** | Deployed seamlessly across **Vercel** (FE) and **Render** (BE). |
-
----
-
-##  Notable Design Decisions & Architecture
-
-
-
-The project uses a **Monorepo** structure to keep client and server code tightly coupled for easier review. Beyond the standard CRUD requirements, I implemented several specific engineering decisions to ensure a robust user experience:
-
-**1. Ephemeral Storage Resilience (Auto-Seeding)**
-Because Render's free tier utilizes ephemeral storage that wipes on server spin-down, a standard SQLite implementation would result in an empty page for new visitors. To solve this, I engineered a `startup` event listener in FastAPI. On boot, the server checks the database and automatically "upserts" the core Armatrix founding team. This ensures the UI is never empty, regardless of server lifecycle.
-
-**2. Core Team Deletion Protection**
-The assignment requested that *all* users have access to Add/Edit/Delete capabilities without auth. To maintain the integrity of the page while fulfilling this requirement, I implemented backend protection logic. Users can freely add and delete their own custom members, but the API will return a `403 Forbidden` if a user attempts to delete the core Armatrix founders. The UI conditionally hides the delete button for these protected members to provide a cleaner UX.
-
-**3. "Premium SaaS" Aesthetic**
-I leaned heavily into Armatrix's deep-tech brand identity. The frontend utilizes a dark mode UI, glowing background orbs, and staggered entrance animations to make the `/team` page feel like a premium, heavily-funded tech product rather than a static list.
 
 ---
 
