@@ -17,9 +17,9 @@
 
 | Resource | Link |
 | :--- | :--- |
-| **Frontend Live (Vercel)** | https://armatrix-team-directory.vercel.app/ |
-| **Backend API (Render)** | https://armatrix-api-8p2f.onrender.com |
-| **API Docs (Swagger)**| https://armatrix-api-8p2f.onrender.com/docs |
+| **Frontend Live (Vercel)** | [Armatrix Team Directory Frontend](https://armatrix-team-directory.vercel.app) |
+| **Backend API (Render)** | [Armatrix Team Directory Backend](https://armatrix-api-8p2f.onrender.com) |
+| **API Docs (Swagger)**| [Armatrix Team Directory Docs](https://armatrix-api-8p2f.onrender.com/docs) |
 
 ---
 
