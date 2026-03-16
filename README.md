@@ -82,3 +82,18 @@ pip install -r requirements.txt
 
 # Run the server
 uvicorn app.main:app --reload
+```
+
+### 2. Frontend Setup (React + Nextjs)
+Open a terminal and navigate to the frontend directory:
+```bash
+cd frontend
+
+# Install dependencies
+npm install
+
+# Run the development server
+npm run dev
+```
+
+# Thank You 
