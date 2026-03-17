@@ -26,7 +26,7 @@ const fieldMeta: {
         { key: "role", label: "Role / Title", required: true },
         { key: "bio", label: "Short bio", required: true, multiline: true },
         { key: "photo_url", label: "Photo URL (optional)", required: false },
-        { key: "linkedin_url", label: "LinkedIn URL", required: true },
+        { key: "linkedin_url", label: "LinkedIn URL", required: false },
         { key: "github_url", label: "GitHub URL (optional)", required: false },
     ];
 
