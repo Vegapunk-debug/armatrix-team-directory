@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import ScrollIndicator from "@/components/ScrollIndicator";
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 import ParticleBackground from "@/components/ParticleBackground";
 
 

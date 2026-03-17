@@ -38,9 +38,10 @@ export default function TeamPage() {
             if (aIsLeader && bIsLeader) {
                 return protectedNames.indexOf(a.name) - protectedNames.indexOf(b.name);
             }
-            return 0; 
+            
+            return a.id - b.id; 
         });
-}, [team]);
+    }, [team]);
 
     const emptyState = useMemo(
         () => !loading && team.length === 0,
@@ -78,7 +79,7 @@ export default function TeamPage() {
             return
         }
         const created = await createMember(payload);
-        setTeam((prev) => [created, ...prev]);
+        setTeam((prev) => [...prev, created]);
     };
 
     const handleDelete = async (member: TeamMember) => {
