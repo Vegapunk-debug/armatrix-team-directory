@@ -1,6 +1,6 @@
 # Main Table  
 from sqlalchemy import Column, Integer, String
-from .database import Base
+from ..db.database import Base
 
 class TeamMember(Base):
 
