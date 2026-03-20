@@ -5,8 +5,8 @@ import { Plus, Users, Lock } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import TeamCard from "@/components/TeamCard";
-import TeamForm, { TeamMemberPayload } from "@/components/TeamForm";
-import { createMember, deleteMember, fetchTeam, updateMember, TeamMember } from "@/lib/api";
+import TeamForm from "@/components/TeamForm";
+import { createMember, deleteMember, fetchTeam, updateMember, TeamMember, TeamMemberPayload } from "@/lib/api";
 import ParticleBackground from "@/components/ParticleBackground";
 
 const containerVariants = {

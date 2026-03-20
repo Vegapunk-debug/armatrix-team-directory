@@ -3,9 +3,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
-import type { TeamMember } from "@/lib/api";
-
-export type TeamMemberPayload = Omit<TeamMember, "id">;
+import type { TeamMember, TeamMemberPayload } from "@/lib/api";
 
 const emptyPayload: TeamMemberPayload = {
     name: "",
@@ -35,7 +33,7 @@ export default function TeamForm({
     initialMember,
     onClose,
     onSubmit,
-} : {
+}: {
     open: boolean;
     initialMember: TeamMember | null;
     onClose: () => void;
@@ -57,7 +55,7 @@ export default function TeamForm({
     const handleChange = (key: keyof TeamMemberPayload, value: string) => {
         setPayload((prev) => ({ ...prev, [key]: value || null }));
     };
-    
+
     return (
         <AnimatePresence>
             {open && (

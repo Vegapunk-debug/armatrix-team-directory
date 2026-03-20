@@ -29,7 +29,7 @@ export default function TeamCard({ member, onEdit, onDelete }: {
     const [spotlightPos, setSpotlightPos] = useState({ x: 0, y: 0 });
     const [isHovered, setIsHovered] = useState(false);
 
-    
+
     const protectedNames = ["Pulkit Sinha", "Vishrant Dave", "Prateesh Awasthi", "Anushtup Nandy", "Ayush Ranjan"]
 
     const isLeadership = protectedNames.includes(member.name);
@@ -99,14 +99,14 @@ export default function TeamCard({ member, onEdit, onDelete }: {
                                 aria-label="Edit member">
                                 <Pencil size={14} className="text-white" />
                             </button>
-                            
+
                             {!isLeadership && (
                                 <button
-                                  onClick={() => onDelete(member)}
-                                  className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/10 backdrop-blur-md transition-all duration-200 hover:bg-red-500/30 hover:scale-110"
-                                  aria-label="Delete member"
+                                    onClick={() => onDelete(member)}
+                                    className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/10 backdrop-blur-md transition-all duration-200 hover:bg-red-500/30 hover:scale-110"
+                                    aria-label="Delete member"
                                 >
-                                <Trash2 size={14} className="text-white" />
+                                    <Trash2 size={14} className="text-white" />
                                 </button>
                             )}
 

@@ -21,7 +21,7 @@ export async function fetchTeam(): Promise<TeamMember[]> {
   return res.json()
 }
 
-export async function createMember(payload: Omit<TeamMember, "id">): Promise<TeamMember> {
+export async function createMember(payload: TeamMemberPayload): Promise<TeamMember> {
   const res = await fetch(`${baseUrl}/api/team`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -33,7 +33,7 @@ export async function createMember(payload: Omit<TeamMember, "id">): Promise<Tea
   return res.json()
 }
 
-export async function updateMember(id: number, payload: Omit<TeamMember, "id">): Promise<TeamMember> {
+export async function updateMember(id: number, payload: TeamMemberPayload): Promise<TeamMember> {
   const res = await fetch(`${baseUrl}/api/team/${id}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },

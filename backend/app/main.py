@@ -8,7 +8,7 @@ app = FastAPI(
     title="Armatrix Team Directory API",
     description="Core backend services and database management for Armatrix.",
     version="1.0.0"
-)#instance fastapi
+)
 
 setup_cors(app)
 
