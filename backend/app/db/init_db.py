@@ -13,7 +13,8 @@ def seed_database(db: Session):
             "bio": "Building the future of the Armatrix platform.",
             "photo_url": "https://i.postimg.cc/xjhYQFJZ/1771490340284.png",
             "linkedin_url": "https://www.linkedin.com/in/pulkit-sinha-803907200/",
-            "github_url": "https://github.com/pulkit-sinha"
+            "github_url": "https://github.com/pulkit-sinha",
+            "is_protected": True
         },
         {
             "name": "Vishrant Dave",
@@ -21,7 +22,8 @@ def seed_database(db: Session):
             "bio": "Visionary lead at Armatrix.",
             "photo_url": "https://i.postimg.cc/kM8YVjYY/armatrix-ceo.jpg",
             "linkedin_url": "https://www.linkedin.com/in/vishrant-dave/",
-            "github_url": "https://github.com/Vishrant-Dave"
+            "github_url": "https://github.com/Vishrant-Dave",
+            "is_protected": True
         },
         {
             "name": "Prateesh Awasthi",
@@ -29,7 +31,8 @@ def seed_database(db: Session):
             "bio": "Strategic architect and co-lead.",
             "photo_url": "https://i.postimg.cc/8zr7D6zH/co-found.jpg",
             "linkedin_url": "https://in.linkedin.com/in/prateesh-awasthi-4a5215109/",
-            "github_url": "https://github.com/Prateesh-Awasthi"
+            "github_url": "https://github.com/Prateesh-Awasthi",
+            "is_protected": True
         },
         {
             "name": "Anushtup Nandy",
@@ -37,7 +40,8 @@ def seed_database(db: Session):
             "bio": "Building robotic systems at that intersection",
             "photo_url": "https://i.postimg.cc/Z5VwtnVn/1726092747509.jpg",
             "linkedin_url": "https://www.linkedin.com/in/anushtup-nandy/",
-            "github_url": "https://github.com/anushtup-nandy"
+            "github_url": "https://github.com/anushtup-nandy",
+            "is_protected": True
         },
         {
             "name": "Ayush Ranjan",
@@ -45,7 +49,8 @@ def seed_database(db: Session):
             "bio": "Chief Technology Officer",
             "photo_url": "https://i.postimg.cc/BvzNbyW1/Chief-Technology-Officer.jpg",
             "linkedin_url": "https://www.linkedin.com/in/ayranjan/",
-            "github_url": "https://github.com"
+            "github_url": "https://github.com",
+            "is_protected": True
         }
         ]
         

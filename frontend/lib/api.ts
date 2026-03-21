@@ -6,6 +6,7 @@ export type TeamMember = {
   photo_url: string | null;
   linkedin_url: string | null;
   github_url: string | null;
+  is_protected: boolean;
 }
 
 export type TeamMemberPayload = Omit<TeamMember, "id">;

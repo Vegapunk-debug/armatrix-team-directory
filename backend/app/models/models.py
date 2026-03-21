@@ -1,5 +1,5 @@
 # Main Table  
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, Boolean
 from ..db.database import Base
 
 class TeamMember(Base):
@@ -13,3 +13,4 @@ class TeamMember(Base):
     photo_url = Column(String, default="https://ui-avatars.com/api/?name=Team+Member&background=random")
     linkedin_url = Column(String, nullable=True)
     github_url = Column(String(500), nullable=True)
+    is_protected = Column(Boolean, default=False)

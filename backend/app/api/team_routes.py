@@ -45,9 +45,7 @@ def delete_team_member(member_id: int, db: Session = Depends(get_db)):
     if not db_member:
         raise HTTPException(status_code=404, detail="Team member not found")
 
-    protected_names = ["Pulkit Sinha", "Vishrant Dave", "Prateesh Awasthi", "Anushtup Nandy", "Ayush Ranjan"]
-
-    if db_member.name in protected_names:
+    if db_member.is_protected:
         raise HTTPException(status_code=403, detail="System Protected: This core team member cannot be deleted.")
         
     db.delete(db_member)

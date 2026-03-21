@@ -8,6 +8,7 @@ class TeamMemberCreate(BaseModel):
     photo_url: Optional[str] = None
     linkedin_url: Optional[str] = None
     github_url: Optional[str] = None 
+    is_protected: bool = False
 
 class TeamMemberResponse(TeamMemberCreate):
     id: int

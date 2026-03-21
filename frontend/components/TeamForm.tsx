@@ -12,6 +12,7 @@ const emptyPayload: TeamMemberPayload = {
     photo_url: "",
     linkedin_url: "",
     github_url: null,
+    is_protected: false
 };
 
 const fieldMeta: {

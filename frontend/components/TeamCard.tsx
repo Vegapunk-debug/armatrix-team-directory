@@ -30,10 +30,7 @@ export default function TeamCard({ member, onEdit, onDelete }: {
     const [isHovered, setIsHovered] = useState(false);
 
 
-    const protectedNames = ["Pulkit Sinha", "Vishrant Dave", "Prateesh Awasthi", "Anushtup Nandy", "Ayush Ranjan"]
-
-    const isLeadership = protectedNames.includes(member.name);
-    // const isLeadership = member.role.toLowerCase().includes("ceo") || member.role.toLowerCase().includes("co-founder");
+    const isProtected = member.is_protected;
 
     const handleMouseMove = useCallback(
         (e: React.MouseEvent<HTMLDivElement>) => {
@@ -100,7 +97,7 @@ export default function TeamCard({ member, onEdit, onDelete }: {
                                 <Pencil size={14} className="text-white" />
                             </button>
 
-                            {!isLeadership && (
+                            {!isProtected && (
                                 <button
                                     onClick={() => onDelete(member)}
                                     className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/10 backdrop-blur-md transition-all duration-200 hover:bg-red-500/30 hover:scale-110"
