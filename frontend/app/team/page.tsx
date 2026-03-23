@@ -26,21 +26,7 @@ export default function TeamPage() {
     const [editingMember, setEditingMember] = useState<TeamMember | null>(null);
     
     const sortedTeam = useMemo(() => {
-        const protectedNames = ["Pulkit Sinha", "Vishrant Dave", "Prateesh Awasthi", "Anushtup Nandy", "Ayush Ranjan"];
-        
-        return [...team].sort((a, b) => {
-            const aIsLeader = protectedNames.includes(a.name);
-            const bIsLeader = protectedNames.includes(b.name);
-
-            if (aIsLeader && !bIsLeader) return -1;
-            if (!aIsLeader && bIsLeader) return 1;
-            
-            if (aIsLeader && bIsLeader) {
-                return protectedNames.indexOf(a.name) - protectedNames.indexOf(b.name);
-            }
-            
-            return a.id - b.id; 
-        });
+        return [...team].sort((a, b) => a.id - b.id);
     }, [team]);
 
     const emptyState = useMemo(

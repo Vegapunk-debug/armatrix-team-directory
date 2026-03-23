@@ -15,19 +15,7 @@ const emptyPayload: TeamMemberPayload = {
     is_protected: false
 };
 
-const fieldMeta: {
-    key: keyof TeamMemberPayload;
-    label: string;
-    required: boolean;
-    multiline?: boolean;
-}[] = [
-        { key: "name", label: "Full name", required: true },
-        { key: "role", label: "Role / Title", required: true },
-        { key: "bio", label: "Short bio", required: true, multiline: true },
-        { key: "photo_url", label: "Photo URL (optional)", required: false },
-        { key: "linkedin_url", label: "LinkedIn URL", required: false },
-        { key: "github_url", label: "GitHub URL (optional)", required: false },
-    ];
+
 
 export default function TeamForm({
     open,
@@ -124,31 +112,63 @@ export default function TeamForm({
                             }}
                         >
                             <div className="grid gap-4 sm:grid-cols-2">
-                                {fieldMeta.map(({ key, label, required, multiline }) => (
-                                    <label
-                                        key={key}
-                                        className={`flex flex-col gap-1.5 font-nav text-[11px] font-light uppercase tracking-nav text-white/50 ${multiline ? "sm:col-span-2" : ""
-                                            }`}
-                                    >
-                                        {label}
-                                        {multiline ? (
-                                            <textarea
-                                                value={(payload[key] as string) ?? ""}
-                                                onChange={(e) => handleChange(key, e.target.value)}
-                                                required={required}
-                                                rows={3}
-                                                className="mt-1 w-full border border-white/[0.08] bg-white/[0.03] px-4 py-3 font-body text-sm font-normal normal-case tracking-normal text-white outline-none transition focus:border-ax-gold/40"
-                                            />
-                                        ) : (
-                                            <input
-                                                value={(payload[key] as string) ?? ""}
-                                                onChange={(e) => handleChange(key, e.target.value)}
-                                                required={required}
-                                                className="mt-1 w-full border border-white/[0.08] bg-white/[0.03] px-4 py-3 font-body text-sm font-normal normal-case tracking-normal text-white outline-none transition focus:border-ax-gold/40"
-                                            />
-                                        )}
-                                    </label>
-                                ))}
+                                <label className="flex flex-col gap-1.5 font-nav text-[11px] font-light uppercase tracking-nav text-white/50">
+                                    Full name
+                                    <input
+                                        value={payload.name ?? ""}
+                                        onChange={(e) => handleChange("name", e.target.value)}
+                                        required
+                                        className="mt-1 w-full border border-white/[0.08] bg-white/[0.03] px-4 py-3 font-body text-sm font-normal normal-case tracking-normal text-white outline-none transition focus:border-ax-gold/40"
+                                    />
+                                </label>
+
+                                <label className="flex flex-col gap-1.5 font-nav text-[11px] font-light uppercase tracking-nav text-white/50">
+                                    Role / Title
+                                    <input
+                                        value={payload.role ?? ""}
+                                        onChange={(e) => handleChange("role", e.target.value)}
+                                        required
+                                        className="mt-1 w-full border border-white/[0.08] bg-white/[0.03] px-4 py-3 font-body text-sm font-normal normal-case tracking-normal text-white outline-none transition focus:border-ax-gold/40"
+                                    />
+                                </label>
+
+                                <label className="flex flex-col gap-1.5 font-nav text-[11px] font-light uppercase tracking-nav text-white/50 sm:col-span-2">
+                                    Short bio
+                                    <textarea
+                                        value={payload.bio ?? ""}
+                                        onChange={(e) => handleChange("bio", e.target.value)}
+                                        required
+                                        rows={3}
+                                        className="mt-1 w-full border border-white/[0.08] bg-white/[0.03] px-4 py-3 font-body text-sm font-normal normal-case tracking-normal text-white outline-none transition focus:border-ax-gold/40"
+                                    />
+                                </label>
+
+                                <label className="flex flex-col gap-1.5 font-nav text-[11px] font-light uppercase tracking-nav text-white/50">
+                                    Photo URL (optional)
+                                    <input
+                                        value={payload.photo_url ?? ""}
+                                        onChange={(e) => handleChange("photo_url", e.target.value)}
+                                        className="mt-1 w-full border border-white/[0.08] bg-white/[0.03] px-4 py-3 font-body text-sm font-normal normal-case tracking-normal text-white outline-none transition focus:border-ax-gold/40"
+                                    />
+                                </label>
+
+                                <label className="flex flex-col gap-1.5 font-nav text-[11px] font-light uppercase tracking-nav text-white/50">
+                                    LinkedIn URL
+                                    <input
+                                        value={payload.linkedin_url ?? ""}
+                                        onChange={(e) => handleChange("linkedin_url", e.target.value)}
+                                        className="mt-1 w-full border border-white/[0.08] bg-white/[0.03] px-4 py-3 font-body text-sm font-normal normal-case tracking-normal text-white outline-none transition focus:border-ax-gold/40"
+                                    />
+                                </label>
+
+                                <label className="flex flex-col gap-1.5 font-nav text-[11px] font-light uppercase tracking-nav text-white/50">
+                                    GitHub URL (optional)
+                                    <input
+                                        value={payload.github_url ?? ""}
+                                        onChange={(e) => handleChange("github_url", e.target.value)}
+                                        className="mt-1 w-full border border-white/[0.08] bg-white/[0.03] px-4 py-3 font-body text-sm font-normal normal-case tracking-normal text-white outline-none transition focus:border-ax-gold/40"
+                                    />
+                                </label>
                             </div>
 
                             <div className="mt-8 flex items-center justify-end gap-3">
